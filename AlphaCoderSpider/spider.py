@@ -42,7 +42,7 @@ def search(keyword):
             link = res.text
             links[image_id] = link
             print(link)
-    print('----------------------------------')
+        print('----------------------------------')
 
 
 def get_max_page(content):
