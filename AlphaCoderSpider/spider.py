@@ -1,6 +1,5 @@
 import requests
 import re
-import json
 
 links = {}
 
@@ -18,6 +17,7 @@ def search(keyword):
     content = res.text
     max_page = get_max_page(content)
     for page in range(1, int(max_page) + 1):
+        print('-----------------Page' + str(page) + '-----------------')
         url = 'https://wall.alphacoders.com/search.php'
         payload = {'search': keyword, 'page': page}
         res = s.get(url, params=payload)
@@ -42,6 +42,7 @@ def search(keyword):
             link = res.text
             links[image_id] = link
             print(link)
+    print('----------------------------------')
 
 
 def get_max_page(content):
