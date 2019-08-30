@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>AlphaCoderSpider</title>
+</head>
+<style>.main{min-width:320px;max-width:600px;margin-top:200px;}</style>
+<body class="mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide">
+    <div class="mdui-toolbar mdui-color-theme">
+        <p class="mdui-typo-headline" style="float:left;width:100%;font-size: 35px">{{keyword}}</p>
+    <div class="mdui-toolbar-spacer"></div>
+    <p" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></p>
+    </div>
+    </div>
+    <br>
+    <div class="mdui-container">
+        <div class="mdui-table-fluid">
+  <table class="mdui-table mdui-table-hoverable">
+    <thead>
+      <tr>
+        <th>Image Id</th>
+        <th>Download Link</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+        </div>
+    </div>
+<script>
+    setInterval(function f() {
+        $.ajax({
+            type: 'GET',
+            url: '/new',
+            dataType: 'json',
+            success: [
+                function (data) {
+                    console.log(data)
+                }
+            ]
+        })
+    },10000);
+    setInterval(function f1() {
+        const text = '<tr><th>233</th><th>5666</th></tr>'
+        $('tbody').append(text)
+    }, 5000);
+</script>
+</body>
+</html>

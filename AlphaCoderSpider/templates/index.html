@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>AlphaCoderSpider</title>
+</head>
+<style>.main{min-width:320px;max-width:600px;margin-top:200px;}</style>
+<body>
+    <div class="mdui-container main">
+        <div class="mdui-text-color-grey-800 mdui-text-center" style="float: left;width:100%;font-size: 35px;">AlphaCoderSpider</div>
+        <div class="mdui-center" style="width: 100%;float: left">
+        <div class="mdui-textfield  mdui-textfield-floating-label">
+            <i class="mdui-icon material-icons">search</i>
+            <label class="mdui-textfield-label">Keyword</label>
+         <input class="mdui-textfield-input" id="inputText" type="text"/>
+        </div>
+        <br>
+        <button id="submitButton" type="submit" value="Go" onclick="submit()" class=" mdui-ripple mdui-color-white-400 submitButton mdui-btn mdui-btn-raised mdui-btn-icon mdui-center"><i class="mdui-icon material-icons">call_missed_outgoing</i></button>
+        </div>
+    </div>
+<script>
+    $('#inputText').bind('keyup', function(event) {
+    if (event.keyCode === 13) {
+        $('#submitButton').click();
+    }
+});
+    function submit() {
+        const keyword = $("#inputText").val();
+        if (keyword === "" || keyword == null) {
+            mdui.snackbar({message: '未输入关键词！'});
+            return;
+        } else {
+            window.location.href='/search/' + keyword
+        }
+    }
+</script>
+</body>
+</html>
